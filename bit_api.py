@@ -32,7 +32,7 @@ def createBrowser():  # 创建或者更新窗口，指纹参数 browserFingerPri
         'proxyUserName': '',  # 代理账号
         'proxyPassword': '',  # 代理密码
         'ip': '',  # ip
-        'city': '',  # 城市
+        'city': '',  # 城市DAIMA
         'province': '',  # 州/省
         'country': '',  # 国家地区
         'dynamicIpUrl': '',  # 提取IP url，参考文档
@@ -75,7 +75,7 @@ def createBrowser():  # 创建或者更新窗口，指纹参数 browserFingerPri
     return browserId
 
 
-def updateBrowser():  # 更新窗口，支持批量更新和按需更新，ids 传入数组，单独更新只传一个id即可，只传入需要修改的字段即可，比如修改备注，具体字段请参考文档，browserFingerPrint指纹对象不修改，则无需传入
+def updateBrowser():  # 更新窗口，支持批量更新和按需更新，ids 传入数组一定要是数组，单独更新只传一个id即可，只传入需要修改的字段即可，比如修改备注，具体字段请参考文档，browserFingerPrint指纹对象不修改，则无需传入
     json_data = {'ids': ['93672cf112a044f08b653cab691216f0'],
                  'remark': '我是一个备注', 'browserFingerPrint': {}}
     res = requests.post(f"{url}/browser/update/partial",
@@ -108,7 +108,7 @@ if __name__ == '__main__':
     browser_id = createBrowser()
     openBrowser(browser_id)
 
-    time.sleep(10)  # 等待10秒自动关闭窗口
+    time.sleep(20)  # 等待20秒自动关闭窗口
 
     closeBrowser(browser_id)
 
